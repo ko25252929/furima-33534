@@ -16,13 +16,13 @@
 ### Association
 
 - has_many :items
-- has_many :Product_purchase_histories 
+- has_many :product_purchase_histories 
 
 ##  items テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| product_name     | string     | null: false                    |
+| name             | string     | null: false                    |
 | price            | integer    | null: false                    |
 | text             | text       | null: false                    |
 | category_id      | integer    | null: false                    |
