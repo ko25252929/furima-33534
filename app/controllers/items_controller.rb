@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :create]
+  before_action :authenticate_user!,except: [:index, :create]
 
   def index
-    @items = Item.all
+    # @items = Item.all
   end
 
   def new
@@ -18,9 +18,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def update
-    current_user.update(user_params)
-  end
+  # def update
+  # current_user.update(user_params)
+  # end 
 
   private
 

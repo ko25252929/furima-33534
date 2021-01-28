@@ -68,6 +68,41 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
       end
+      it 'priceが299円以下では登録できないこと'do
+        @item.price = "299"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be greater than 300")
+      end
+      it 'priceが10,000,000以上では登録できないこと'do
+        @item.price = "10000000"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be less than 10000000")
+      end
+      it 'category_idが1では登録できない' do
+        @item.category_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
+      it 'condition_idが1では登録できない' do
+        @item.condition_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+      end
+      it 'cost_idが1では登録できない' do
+        @item.cost_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Cost must be other than 1")
+      end
+      it 'prefectures_idが1では登録できない' do
+        @item.prefectures_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefectures must be other than 1")
+      end
+      it 'shipping_days_idが1では登録できない' do
+        @item.shipping_days_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping days must be other than 1")
+      end
     end
   end
 end
