@@ -1,9 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!,except: [:index]
 
   def index
-    @items = Item.all
-    @items = Item.includes(:user).order('created_at DESC')
+     @items = Item.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -21,7 +20,7 @@ class ItemsController < ApplicationController
 
   # def update
   #     current_user.update(item_params)
-  # end
+  # end 
 
   private
 
