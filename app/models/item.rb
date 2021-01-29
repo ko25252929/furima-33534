@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     VALID_PRICEL_HALF = /\A[0-9]+\z/
     validates :price, presence: true, format: { with: VALID_PRICEL_HALF }, numericality: { only_integer: true,
                                                                                            greater_than: 300, less_than: 10_000_000 }
-    validates :text, length: { in: 1..40 }
+    validates :text, length: { in: 1..1000 }
     validates :image
 
     with_options numericality: { other_than: 1 } do
