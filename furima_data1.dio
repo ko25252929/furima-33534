@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-01-20T06:51:59.803Z" agent="5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="skAwPzmQcjcRG4EhATIx" version="13.10.0" type="embed">
+<mxfile host="65bd71144e" modified="2021-01-31T06:33:05.927Z" agent="5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="8AND0mDCtHBeslKMFe8d" version="13.10.0" type="embed">
     <diagram id="ZAPEKM1-49SuGnX2-YCL" name="ページ1">
-        <mxGraphModel dx="1279" dy="971" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+        <mxGraphModel dx="201" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -29,7 +29,7 @@
                 <mxCell id="22" value="price (integer型  NOT NULL)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="20" vertex="1">
                     <mxGeometry y="56" width="230" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" value="image&#10;&#10;text (text型  NOT NULL)&#10;&#10;category_id (integer型  NOT NULL)&#10;&#10;condition_id (integer型  NOT NULL)&#10;&#10;delivery_cost (integer型  NOT NULL)&#10;&#10;prefectures_id  (integer型  NOT NULL)&#10;&#10;shipping_days_id (integer型  NOT NULL)&#10;&#10;user (references型 )&#10;&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="20" vertex="1">
+                <mxCell id="23" value="image&#10;&#10;text (text型  NOT NULL)&#10;&#10;category_id (integer型  NOT NULL)&#10;&#10;condition_id (integer型  NOT NULL)&#10;&#10;delivery_cost (integer型  NOT NULL)&#10;&#10;prefecture_id  (integer型  NOT NULL)&#10;&#10;shipping_day_id (integer型  NOT NULL)&#10;&#10;user (references型 )&#10;&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="20" vertex="1">
                     <mxGeometry y="86" width="230" height="224" as="geometry"/>
                 </mxCell>
                 <mxCell id="26" value="buys_table" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
@@ -38,7 +38,7 @@
                 <mxCell id="27" value="postal_code  (string型 NOT NULL)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="26" vertex="1">
                     <mxGeometry y="26" width="240" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="28" value="prefectures_id  (integer型  NOT NULL)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="26" vertex="1">
+                <mxCell id="28" value="prefecture_id  (integer型  NOT NULL)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="26" vertex="1">
                     <mxGeometry y="56" width="240" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="29" value="city (string型  NOT NULL)&#10;&#10;address (string型  NOT NULL)&#10;&#10;building_name (string型)&#10;&#10;phone_number (string型  NOT NULL)&#10;&#10;product_purchase_history (references型 )&#10;&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="26" vertex="1">
