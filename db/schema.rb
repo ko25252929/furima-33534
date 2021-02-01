@@ -34,18 +34,16 @@ ActiveRecord::Schema.define(version: 2021_01_31_104755) do
   end
 
   create_table "buys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "price", null: false
-    t.text "text", null: false
-    t.integer "category_id", null: false
-    t.integer "condition_id", null: false
-    t.integer "cost_id", null: false
+    t.string "postal_code", null: false
     t.integer "prefecture_id", null: false
-    t.integer "shipping_day_id", null: false
-    t.bigint "user_id", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "building_name"
+    t.string "phone_number", null: false
+    t.bigint "product_purchase_history_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_buys_on_user_id"
+    t.index ["product_purchase_history_id"], name: "index_buys_on_product_purchase_history_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
