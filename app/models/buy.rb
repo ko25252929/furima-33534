@@ -8,5 +8,5 @@ class Buy < ApplicationRecord
     validates :address
     validates :phone_number
   end
-#validates :building_name
+     #validates :building_name
 end
