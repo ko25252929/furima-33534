@@ -22,8 +22,8 @@ class Item < ApplicationRecord
       validates :category_id
       validates :condition_id
       validates :cost_id
-      validates :prefectures_id
-      validates :shipping_days_id
+      validates :prefecture_id
+      validates :shipping_day_id
     end
   end
 end

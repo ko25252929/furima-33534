@@ -8,7 +8,7 @@ RSpec.describe Item, type: :model do
 
   describe '出品の情報登録' do
     context '出品の情報登録できるとき' do
-      it 'name,price, text, image, category_id, condition_id, cost_id, prefectures_id, shipping_days_id, user_id, とが存在すれば登録できる' do
+      it 'name,price, text, image, category_id, condition_id, cost_id, prefecture_id, shipping_day_id, user_id, とが存在すれば登録できる' do
         expect(@item).to be_valid
       end
     end
@@ -44,12 +44,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Cost can't be blank")
       end
       it 'prefecturesが空では登録できない' do
-        @item.prefectures_id = ''
+        @item.prefecture_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefectures can't be blank")
       end
-      it 'shipping_daysが空では登録できない' do
-        @item.shipping_days_id = ''
+      it 'shipping_dayが空では登録できない' do
+        @item.shipping_day_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping days is not a number')
       end
@@ -104,13 +104,13 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Cost must be other than 1')
       end
-      it 'prefectures_idが1では登録できない' do
-        @item.prefectures_id = '1'
+      it 'prefecture_idが1では登録できない' do
+        @item.prefecture_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefectures must be other than 1')
       end
-      it 'shipping_days_idが1では登録できない' do
-        @item.shipping_days_id = '1'
+      it 'shipping_day_idが1では登録できない' do
+        @item.shipping_day_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping days must be other than 1')
       end
