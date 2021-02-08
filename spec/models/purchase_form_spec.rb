@@ -8,7 +8,7 @@ RSpec.describe PurchaseForm, type: :model do
 
   describe '購入内容情報' do
     context '購入ができるとき' do
-      it 'postal_code,  prefecture_id, city, address, phone_number,token, とが存在すれば購入できる' do
+      it 'postal_code,  prefecture_id, city, address, phone_number,token,とが存在すれば購入できる' do
         expect(@purchaseform).to be_valid
       end
     end
@@ -43,6 +43,16 @@ RSpec.describe PurchaseForm, type: :model do
         @purchaseform.valid?
         expect(@purchaseform.errors.full_messages).to include("Token can't be blank")
       end
+      it 'user_idが空では購入できない' do
+        @purchaseform.user_id = ''
+        @purchaseform.valid?
+        expect(@purchaseform.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空では購入できない' do
+        @purchaseform.item_id = ''
+        @purchaseform.valid?
+        expect(@purchaseform.errors.full_messages).to include("Item can't be blank")
+      end
       it 'postal_codeは半角数字でないと購入できない' do
         @purchaseform.postal_code = '１２３４５'
         @purchaseform.valid?
@@ -50,6 +60,11 @@ RSpec.describe PurchaseForm, type: :model do
       end
       it 'phone_numberは半角数字でないと購入できない' do
         @purchaseform.phone_number = '１２３４５'
+        @purchaseform.valid?
+        expect(@purchaseform.errors.full_messages).to include('Phone number 11文字以内半角数字を使用してください')
+      end
+      it 'phone_numberは英数混合では購入できない' do
+        @purchaseform.phone_number = '123kkk'
         @purchaseform.valid?
         expect(@purchaseform.errors.full_messages).to include('Phone number 11文字以内半角数字を使用してください')
       end

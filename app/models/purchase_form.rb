@@ -11,6 +11,8 @@ class PurchaseForm
     validates :address
     validates :phone_number, format: { with: /\A\d{11}\z/, message: '11文字以内半角数字を使用してください' }
     validates :token
+    validates :item_id
+    validates :user_id
   end
 
   def save
