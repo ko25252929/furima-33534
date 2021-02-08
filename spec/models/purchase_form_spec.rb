@@ -5,7 +5,7 @@ RSpec.describe PurchaseForm, type: :model do
     @purchaseform = FactoryBot.build(:purchase_form)
   end
   pending "add some examples to (or delete) #{__FILE__}"
- 
+
   describe '購入内容情報' do
     context '購入ができるとき' do
       it 'postal_code,  prefecture_id, city, address, phone_number,token, とが存在すれば購入できる' do
@@ -46,27 +46,27 @@ RSpec.describe PurchaseForm, type: :model do
       it 'postal_codeは半角数字でないと購入できない' do
         @purchaseform.postal_code = '１２３４５'
         @purchaseform.valid?
-        expect(@purchaseform.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@purchaseform.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'phone_numberは半角数字でないと購入できない' do
         @purchaseform.phone_number = '１２３４５'
         @purchaseform.valid?
-        expect(@purchaseform.errors.full_messages).to include("Phone number 11文字以内半角数字を使用してください")
+        expect(@purchaseform.errors.full_messages).to include('Phone number 11文字以内半角数字を使用してください')
       end
       it 'prefecture_idが1では購入できない' do
         @purchaseform.prefecture_id = '1'
         @purchaseform.valid?
-        expect(@purchaseform.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@purchaseform.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it 'cityが全角入力でなければ購入できないこと' do
         @purchaseform.city = 'ｱｲｳｴｵ'
         @purchaseform.valid?
-        expect(@purchaseform.errors.full_messages).to include("City 全角文字を使用してください")
+        expect(@purchaseform.errors.full_messages).to include('City 全角文字を使用してください')
       end
       it 'phone_numberが11文字以上では登録できない' do
-        @purchaseform.phone_number = "090123456789"
+        @purchaseform.phone_number = '090123456789'
         @purchaseform.valid?
-        expect(@purchaseform.errors.full_messages).to include("Phone number 11文字以内半角数字を使用してください")
+        expect(@purchaseform.errors.full_messages).to include('Phone number 11文字以内半角数字を使用してください')
       end
     end
   end
