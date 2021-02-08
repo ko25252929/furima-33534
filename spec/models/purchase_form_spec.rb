@@ -2,13 +2,18 @@ require 'rails_helper'
 
 RSpec.describe PurchaseForm, type: :model do
   before do
-    @purchaseform = FactoryBot.build(:purchase_form,user_id: user.id, user_id: user.id)
+    @user = FactoryBot.create(:user)
+    @item = FactoryBot.create(:item)
+    @purchaseform = FactoryBot.build(:purchase_form,user_id: @user.id, item_id: @item.id)
+    sleep(1)
   end
-  pending "add some examples to (or delete) #{__FILE__}"
-
   describe '購入内容情報' do
     context '購入ができるとき' do
       it 'postal_code,  prefecture_id, city, address, phone_number,token,とが存在すれば購入できる' do
+        expect(@purchaseform).to be_valid
+      end
+      it '建物名が空でも購入できる' do
+        @purchaseform.building_name = ''
         expect(@purchaseform).to be_valid
       end
     end
