@@ -4,7 +4,6 @@ RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
   end
-  pending "add some examples to (or delete) #{__FILE__}"
 
   describe '出品の情報登録' do
     context '出品の情報登録できるとき' do

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    name { 'test' }
+    name               { 'test' }
     price              { 400 }
     text               { 'aaaa' }
     category_id        { 2 }
