@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PurchaseForm, type: :model do
   before do
-    @purchaseform = FactoryBot.build(:purchase_form)
+    @purchaseform = FactoryBot.build(:purchase_form,user_id: user_id, user_id: user_id)
   end
   pending "add some examples to (or delete) #{__FILE__}"
 
