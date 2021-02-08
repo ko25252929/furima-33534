@@ -13,6 +13,7 @@ class PurchaseForm
     validates :token
   end
 
+  
   def save
     product_purchase_history = ProductPurchaseHistory.create(user_id: user_id, item_id: item_id)
     Buy.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building_name: building_name, phone_number: phone_number, product_purchase_history_id: product_purchase_history.id)

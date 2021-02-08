@@ -1,29 +1,41 @@
 class BuysController < ApplicationController
+  before_action :set_item, only: [:index, :create]
   before_action :set_buy, only: [:index, :create]
   before_action :authenticate_user!,only: [:index]
+  before_action :sold_out_item, only: [:index]
 
-  
-
-   
   def index
+    
     @purchaseform  = PurchaseForm.new
+    @item = Item.find(params[:item_id])
+   if current_user == @item.user
+         redirect_to root_path
+   end
   end
 
   
-  
   def create
-    @buy = PurchaseForm.new(buy_params)
-    if @buy.valid?
+    @purchaseform = PurchaseForm.new(buy_params)
+    if @purchaseform.valid?
        pay_item
-       @buy.save
-      return redirect_to root_path
+       @purchaseform.save
+     return redirect_to root_path
     else
-      render 'index'
+       render 'index'
     end
   end
 
   private
-
+  def sold_out_item
+   if @item.product_purchase_history.present?
+    redirect_to root_path
+   end
+  end
+  
+  def set_item
+   @item = Item.find(params[:item_id])
+  end
+  
   def set_buy
     @buys = Item.find(params[:item_id])
   end
